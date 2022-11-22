@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
 	int i;
+	int printed_chars = 0;
 
 	va_list arg_list;
 
@@ -29,5 +30,6 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(arg_list);
+	_putchar('\n');
 	return (printed_char);
 }
