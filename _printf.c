@@ -17,19 +17,21 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0', i++)
 	{
-		if(format[i] == '\')
+		if (format[i] == '%')
 		{
 			if(format[i + 1] == 'c')
+			{
 				_putchar(va_arg(arg_list, char *));
-			else if(format[i + 1] == 's')
+				i++;
+			}
+			else if (format[i + 1] == 's')
+			{
 				_putstr(va_arg(arg_list, char *));
-			i++;
+				i++;
+			}
 		}
 		else
-		{
 			_putchar(format[i]);
-			i++;
-		}
 	}
 	va_end(arg_list);
 	return (printed_chars);
