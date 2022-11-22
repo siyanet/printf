@@ -15,18 +15,13 @@ int _printf(const char *format, ...)
 
 	va_start(arg_list, format);
 
-	for (i = 0; format[i] != '\0', i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			if(format[i + 1] == 'c')
 			{
-				_putchar(va_arg(arg_list, char *));
-				i++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				_putstr(va_arg(arg_list, char *));
+				_putchar(va_arg(arg_list, int));
 				i++;
 			}
 		}
@@ -34,5 +29,5 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(arg_list);
-	return (printed_chars);
+	return (printed_char);
 }
